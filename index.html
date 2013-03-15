@@ -1,0 +1,83 @@
+<!DOCTYPE HTML>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>hColumns</title>
+
+    <!-- css for hcolumn -->
+    <link rel="stylesheet" href="css/reset.css" type="text/css">
+    <link rel="stylesheet" href="css/hcolumns.css" type="text/css">
+    
+    <!-- css for intro page -->
+    <link rel="stylesheet" href="css/hcolumns-intro.css" type="text/css">
+</head>
+
+<body>
+    <div class="container">
+        <h1>hColumns <small>version 0.1.0</small></h1>
+        <p class="intro">
+            hColumns is a <a href="http://jquery.com" target="_blank">jQuery</a> plugin that looks like Mac OS X Finder's column view for the hierarchical data. <br>
+            <img src="img/demo.png">
+        </p>
+
+        <h2>Instructions</h2>
+        <pre>
+        1. download package
+        2. add required css and js tag
+        3. write code for hcolumns init
+        3-1. write a node source
+        4. done</pre>
+
+        <h2>Customization</h2>
+        <pre>label text string, no node string, custom type</pre>
+
+        <h2>Download</h2>
+
+        <h2>Authors</h2>
+        <pre>Buwei Chiu at hahahaha studio</pre>
+
+        <h2>Licenses</h2>
+        <pre>mit</pre>
+        
+        <h2>Example</h2>
+        <div id="columns"></div>
+
+        <script src="js/jquery-1.9.1.min.js"></script>
+        <script src="js/jquery.hcolumns.min.js"></script>
+
+        <script>
+            $(document).ready(function() {
+                $("#columns").hColumns({
+                    nodeSource: function(node_id, callback) {
+                        if(node_id === null) {
+                            return callback(null, [
+                                { id: 1, label: "bu", type: "folder" },
+                                { id: 2, label: "google", type: "link", url: "http://www.google.com"},
+                                { id: 7, label: "empty", type: "folder" }
+                            ]);
+                        }
+
+                        if(node_id == 1) {
+                            return callback(null, [
+                                { id: 3, label: "yahoo", type: "link", url: "http://us.yahoo.com" }
+                            ]);
+                        }
+
+                        return callback(null, []);
+                    },
+
+                    customNodeTypeIndicator: {
+                    },
+
+                    customNodeTypeHandler: {
+                        article: function(columnView, node, node_data) {
+                        
+                        }
+                    }
+                });
+            });
+        </script>
+    </div>
+</body>
+</html>

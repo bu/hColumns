@@ -1,0 +1,109 @@
+.column-view-container {
+    width: 900px;
+    height: 420px;
+    border: 1px solid #ccc;
+    overflow: auto;
+    display: block;
+}
+
+.column-view-composition { 
+    display: table;
+    white-space: nowrap;
+}
+
+.column {
+    display: table-cell;
+    border-right: 1px solid #999;
+}
+
+.column div.article {
+    display: block;
+    width: 500px;
+    padding: 10px;
+    white-space: normal;
+}
+
+.column div.article strong {
+    display: block;
+
+    font-size: 15px;
+
+    margin: 10px;
+}
+
+.column div.article p {
+    font-size: 15px;
+
+    margin: 1em 0;
+    line-height: 20px;
+
+    color: #666;
+}
+
+.column:last-child {
+    border-right: 0;
+}
+
+.column > p {
+    font-size: 15px;
+
+    margin: 10px;
+
+    color: #666;
+}
+
+.column ul {
+    list-style: none;
+
+    height: 300px;
+    width: 250px;
+
+    overflow-y: auto;
+    margin: 0;
+}
+
+.column ul li {
+    margin: 0;
+    padding: 10px;
+
+    font-size: 15px;
+}
+
+.column ul li:hover {
+    cursor: pointer;
+}
+
+.column ul li i {
+    float: right;
+}
+
+.column ul li:hover, .column ul li.active {
+    background: #999999;
+    color: #FFFFFF;
+}
+
+.column ul li:hover a, .column ul li.active a {
+    color: #FFFFFF;
+}
+
+[class^="icon-"],
+[class*=" icon-"] {
+    display: inline-block;
+    width: 14px;
+    height: 14px;
+    margin-top: 1px;
+    *margin-right: .3em;
+    line-height: 14px;
+    vertical-align: text-top;
+    background-image: url("../img/glyphicons-halflings.png");
+    background-position: 14px 14px;
+    background-repeat: no-repeat;
+}
+
+.icon-chevron-right {
+    background-position: -456px -72px;
+}
+
+.icon-globe {
+    background-position: -336px -144px;
+}
