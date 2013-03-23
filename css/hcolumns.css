@@ -94,3 +94,11 @@
 .icon-globe {
     background-position: -336px -144px;
 }
+
+/* css hack for firefox */
+@-moz-document url-prefix() { 
+    [class^="icon-"],
+    [class*=" icon-"] {
+        margin-top: -14px;
+    }
+}
