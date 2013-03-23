@@ -4,8 +4,10 @@
     height: 300px;
     border: 1px solid #ccc;
     background: #FFF;
-    overflow: auto;
     display: block;
+
+    overflow-x: auto;
+    overflow-y: hidden;
 }
 
 /* the composition div for colums */
