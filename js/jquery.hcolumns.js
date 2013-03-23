@@ -1,12 +1,6 @@
-// hColumns
-// ===============
-(function($) {
-    //
-    // Default values
-    // -----------------
+// hColumns by bu <bu@hax4.in>, BSD License
 
-    // Default Config
-    // 
+(function($) {
     var defaultConfig = {
         nodeSource: function() {
             return window.alert("dummy source, you need to create a node source");
