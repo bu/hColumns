@@ -16,64 +16,236 @@
 <body>
     <div class="container">
         <h1>hColumns <small>version 0.1.0</small></h1>
-        <p class="intro">
-            hColumns is a <a href="http://jquery.com" target="_blank">jQuery</a> plugin that looks like Mac OS X Finder's column view for the hierarchical data. <br>
-            <img src="img/demo.png">
-        </p>
-
-        <h2>Instructions</h2>
-        <pre>
-        1. download package
-        2. add required css and js tag
-        3. write code for hcolumns init
-        3-1. write a node source
-        4. done</pre>
-
-        <h2>Customization</h2>
-        <pre>label text string, no node string, custom type</pre>
-
-        <h2>Download</h2>
-
-        <h2>Authors</h2>
-        <pre>Buwei Chiu at hahahaha studio</pre>
-
-        <h2>Licenses</h2>
-        <pre>mit</pre>
         
+        <div id="share-buttons">
+            <iframe src="http://ghbtns.com/github-btn.html?user=bu&repo=hColumns&type=watch&count=true" allowtransparency="true" frameborder="0" scrolling="0" width="100" height="20"></iframe> 
+
+            <a href="https://twitter.com/share" class="twitter-share-button">Tweet</a>
+            <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="//platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
+        </div>
+
+        <h2>Introduction</h2>
+        <p>hColumns is a <a href="http://jquery.com" target="_blank">jQuery</a> plugin that looks like Mac OS X Finder's column view for the hierarchical data.</p>
+        <img src="img/demo.png">
+
         <h2>Example</h2>
         <div id="columns"></div>
 
+        <h2>Instructions</h2>
+        <ol>
+            <li>Get the latest version of this plugin from Github (<a href="https://github.com/bu/hColumns/archive/master.zip">https://github.com/bu/hColumns/archive/master.zip</a>)</li>
+            <li>Add required CSS and Javascript tag
+                <div class="code-block">
+                    <strong>Insert before &#60/head&#62;</strong>
+
+                    <div class="code">
+                        <pre style="background:#fdf6e3;color:#586e75">
+<span style="color:#839496;font-style:italic">&lt;!-- Change this if you have another CSS Rest framework installed (e.g. Bootstrap) --></span>
+<span style="color:#93a1a1">&lt;</span><span style="color:#268bd2;font-weight:700">link</span> <span style="color:#93a1a1">rel</span>=<span style="color:#269186"><span style="color:#269186">"</span>stylesheet<span style="color:#269186">"</span></span> <span style="color:#93a1a1">href</span>=<span style="color:#269186"><span style="color:#269186">"</span>css/reset.css<span style="color:#269186">"</span></span> <span style="color:#93a1a1">type</span>=<span style="color:#269186"><span style="color:#269186">"</span>text/css<span style="color:#269186">"</span></span><span style="color:#93a1a1">></span>
+
+<span style="color:#839496;font-style:italic">&lt;!-- Feel free to modify this for colors or width to match your need --></span>
+<span style="color:#93a1a1">&lt;</span><span style="color:#268bd2;font-weight:700">link</span> <span style="color:#93a1a1">rel</span>=<span style="color:#269186"><span style="color:#269186">"</span>stylesheet<span style="color:#269186">"</span></span> <span style="color:#93a1a1">href</span>=<span style="color:#269186"><span style="color:#269186">"</span>css/hcolumns.css<span style="color:#269186">"</span></span> <span style="color:#93a1a1">type</span>=<span style="color:#269186"><span style="color:#269186">"</span>text/css<span style="color:#269186">"</span></span><span style="color:#93a1a1">></span></pre>
+                    </div>
+
+                    <strong>Put anywhere you like</strong>
+                    <div class="code">
+<pre style="background:#fdf6e3;color:#586e75"><span style="color:#93a1a1">&lt;</span><span style="color:#268bd2;font-weight:700">div</span> <span style="color:#93a1a1">id</span><span style="color:#708284">=</span><span style="color:#269186"><span style="color:#269186">"</span>columns<span style="color:#269186">"</span></span><span style="color:#93a1a1">>&lt;/</span><span style="color:#268bd2;font-weight:700">div</span><span style="color:#93a1a1">></span></pre>
+                    </div>
+
+                    <strong>Insert before &#60;/body&#62;</strong>
+                    <div class="code">
+<pre style="background:#fdf6e3;color:#586e75"><span style="color:#93a1a1">&lt;</span><span style="color:#268bd2;font-weight:700">script</span> <span style="color:#93a1a1">src</span>=<span style="color:#269186"><span style="color:#269186">"</span>js/jquery-1.9.1.min.js<span style="color:#269186">"</span></span><span style="color:#93a1a1">>&lt;/</span><span style="color:#268bd2;font-weight:700">script</span><span style="color:#93a1a1">></span>
+<span style="color:#93a1a1">&lt;</span><span style="color:#268bd2;font-weight:700">script</span> <span style="color:#93a1a1">src</span>=<span style="color:#269186"><span style="color:#269186">"</span>js/jquery.hcolumns.min.js<span style="color:#269186">"</span></span><span style="color:#93a1a1">>&lt;/</span><span style="color:#268bd2;font-weight:700">script</span><span style="color:#93a1a1">></span>
+
+<span style="color:#93a1a1">&lt;</span><span style="font-style:italic">script</span><span style="color:#93a1a1">></span>
+<span style="color:#859900">$</span><span style="color:#93a1a1">(</span><span style="color:#859900">document</span><span style="color:#93a1a1">)</span>.ready<span style="color:#93a1a1">(</span><span style="color:#268bd2">function</span><span style="color:#93a1a1">(</span><span style="color:#93a1a1">)</span> <span style="color:#268bd2">{</span>
+    <span style="color:#859900">$</span><span style="color:#93a1a1">(</span><span style="color:#269186"><span style="color:#c60000">"</span>#columns<span style="color:#c60000">"</span></span><span style="color:#93a1a1">)</span>.hColumns<span style="color:#93a1a1">(</span><span style="color:#268bd2">{</span>
+        <span style="color:#a57800">nodeSource</span>: <span style="color:#268bd2">function</span>(node_id, callback) <span style="color:#268bd2">{</span>
+        <span style="color:#268bd2">}</span>
+    <span style="color:#268bd2">}</span><span style="color:#93a1a1">)</span>;                                                                                                                                                                  <span style="color:#268bd2">}</span><span style="color:#93a1a1">)</span>;
+<span style="color:#268bd2">}</span><span style="color:#93a1a1">)</span>;                                                                                                                                                                  <span style="color:#268bd2">}</span><span style="color:#93a1a1">)</span>;
+<span style="color:#93a1a1">&lt;/</span><span style="font-style:italic">script</span><span style="color:#93a1a1">></span></pre>
+                    </div>
+                </div>
+            </li>
+
+            <li>Create your own node source
+                <div class="code-block">
+                    <strong>What is Node Source?</strong>
+                    <p>Node source is a Javascript function that provide hColumns children nodes. To write one is simple and quick.</p>
+
+                    <strong>How to write a Node Source</strong>
+                    <p>Node Source is a function that receive two parameters: node_id, callback</p>
+                    <p>And return an array contains nodes, each node is a object *at least* contains: id, label, type</p>
+                    <hr>
+                    <p>A simple one might be: </p>
+
+                    <div class="code">
+<pre style="background:#fdf6e3;color:#586e75"><span style="color:#268bd2">function</span><span style="color:#93a1a1">(</span>node_id, callback<span style="color:#93a1a1">)</span> <span style="color:#268bd2">{</span>
+    <span style="color:#93a1a1">// callback is a function that receive two parameter</span>
+    <span style="color:#93a1a1">// callback(error, array of nodes);</span>
+
+    <span style="color:#93a1a1">// if inital load</span>
+    <span style="color:#859900">if</span><span style="color:#93a1a1">(</span>node_id <span style="color:#859900">===</span> <span style="color:#b58900">null</span><span style="color:#93a1a1">)</span> <span style="color:#268bd2">{</span>
+        <span style="color:#859900">return</span> callback<span style="color:#93a1a1">(</span><span style="color:#b58900">null</span>, <span style="color:#268bd2">[</span>
+            <span style="color:#268bd2">{</span> id: <span style="color:#269186">1</span>, label: <span style="color:#269186"><span style="color:#c60000">"</span>folder<span style="color:#c60000">"</span></span>, type: <span style="color:#269186"><span style="color:#c60000">"</span>folder<span style="color:#c60000">"</span></span> <span style="color:#268bd2">}</span>,
+            <span style="color:#268bd2">{</span> id: <span style="color:#269186">2</span>, label: <span style="color:#269186"><span style="color:#c60000">"</span>empty<span style="color:#c60000">"</span></span>, type: <span style="color:#269186"><span style="color:#c60000">"</span>folder<span style="color:#c60000">"</span></span> <span style="color:#268bd2">}</span>,
+            <span style="color:#268bd2">{</span> id: <span style="color:#269186">3</span>, label: <span style="color:#269186"><span style="color:#c60000">"</span>Google<span style="color:#c60000">"</span></span>, type: <span style="color:#269186"><span style="color:#c60000">"</span>link<span style="color:#c60000">"</span></span>, url: <span style="color:#269186"><span style="color:#c60000">"</span>http://www.google.com<span style="color:#c60000">"</span></span> <span style="color:#268bd2">}</span>
+        <span style="color:#268bd2">]</span><span style="color:#93a1a1">)</span>;
+    <span style="color:#268bd2">}</span> 
+
+    <span style="color:#859900">if</span><span style="color:#93a1a1">(</span>node_id <span style="color:#859900">===</span> <span style="color:#269186">1</span><span style="color:#93a1a1">)</span> <span style="color:#268bd2">{</span>
+        <span style="color:#859900">return</span> callback<span style="color:#93a1a1">(</span><span style="color:#b58900">null</span>, <span style="color:#268bd2">[</span>
+            <span style="color:#268bd2">{</span> id: <span style="color:#269186">11</span>, label: <span style="color:#269186"><span style="color:#c60000">"</span>Google in a folder<span style="color:#c60000">"</span></span>, type: <span style="color:#269186"><span style="color:#c60000">"</span>link<span style="color:#c60000">"</span></span>, url: <span style="color:#269186"><span style="color:#c60000">"</span>http://www.google.com<span style="color:#c60000">"</span></span> <span style="color:#268bd2">}</span>
+        <span style="color:#268bd2">]</span><span style="color:#93a1a1">)</span>;
+    <span style="color:#268bd2">}</span>
+
+    <span style="color:#93a1a1">// even empty nodes, you need to return empty array []</span>
+    <span style="color:#859900">if</span><span style="color:#93a1a1">(</span>node_id <span style="color:#859900">===</span> <span style="color:#269186">2</span><span style="color:#93a1a1">)</span> <span style="color:#268bd2">{</span>
+        <span style="color:#859900">return</span> callback<span style="color:#93a1a1">(</span><span style="color:#b58900">null</span>, <span style="color:#268bd2">[</span><span style="color:#268bd2">]</span><span style="color:#93a1a1">)</span>;
+    <span style="color:#268bd2">}</span>
+<span style="color:#268bd2">}</span>
+</pre>
+                    <hr>
+                    <p>Or it can use backend resource, like PHP</p>
+                    <strong class="minor">Node Source</strong>
+<pre style="background:#fdf6e3;color:#586e75"><span style="color:#268bd2">function</span><span style="color:#93a1a1">(</span>node_id, callback<span style="color:#93a1a1">)</span> <span style="color:#268bd2">{</span>
+    <span style="color:#859900">$</span>.ajax<span style="color:#93a1a1">(</span><span style="color:#269186"><span style="color:#c60000">"</span>resource.php<span style="color:#c60000">"</span></span>, <span style="color:#268bd2">{</span> node_id: node_id <span style="color:#268bd2">}</span><span style="color:#93a1a1">)</span>.done<span style="color:#93a1a1">(</span><span style="color:#268bd2">function</span><span style="color:#93a1a1">(</span>data<span style="color:#93a1a1">)</span> <span style="color:#268bd2">{</span>
+        <span style="color:#859900">return</span> callback<span style="color:#93a1a1">(</span><span style="color:#b58900">null</span>, data<span style="color:#93a1a1">)</span>;
+    <span style="color:#268bd2">}</span><span style="color:#93a1a1">)</span>.fail<span style="color:#93a1a1">(</span><span style="color:#268bd2">function</span><span style="color:#93a1a1">(</span><span style="color:#93a1a1">)</span> <span style="color:#268bd2">{</span>
+        <span style="color:#859900">return</span> callback<span style="color:#93a1a1">(</span><span style="color:#269186"><span style="color:#c60000">"</span>AJAX error<span style="color:#c60000">"</span></span><span style="color:#93a1a1">)</span>;
+    <span style="color:#268bd2">}</span><span style="color:#93a1a1">)</span>;
+<span style="color:#268bd2">}</span></pre>
+                    <strong class="minor">resource.php</strong>
+                    <div class="code">
+<pre style="background:#fdf6e3;color:#586e75"><span style="color:#bd3613"><span style="color:#d30102">&lt;?php</span>
+<span style="color:#93a1a1">// example for hColumns</span>
+<span style="color:#93a1a1">// by bu &lt;bu@hax4.in></span>
+
+<span style="color:#268bd2"><span style="color:#859900">$</span>node_id</span> <span style="color:#859900">=</span> <span style="color:#268bd2">filter_input</span>(<span style="color:#cb4b16">INPUT_GET</span>, <span style="color:#269186"><span style="color:#c60000">"</span>node_id<span style="color:#c60000">"</span></span>, <span style="color:#cb4b16">FILTER_SANITIZE_NUMBER_INT</span>);
+
+<span style="color:#859900">if</span>( <span style="color:#268bd2"><span style="color:#859900">$</span>node_id</span> <span style="color:#859900">==</span> <span style="color:#b58900">NULL</span> ) {
+    <span style="color:#a57800">echo</span> <span style="color:#268bd2">json_encode</span>(<span style="color:#536871"><span style="color:#a57800">array</span><span style="color:#d31e1e">(</span>
+        <span style="color:#269186">0</span> <span style="color:#859900">=></span> <span style="color:#536871"><span style="color:#a57800">array</span><span style="color:#d31e1e">(</span> <span style="color:#269186"><span style="color:#c60000">"</span>id<span style="color:#c60000">"</span></span> <span style="color:#859900">=></span> <span style="color:#269186">1</span>, <span style="color:#269186"><span style="color:#c60000">"</span>label<span style="color:#c60000">"</span></span> <span style="color:#859900">=></span> <span style="color:#269186"><span style="color:#c60000">"</span>from PHP<span style="color:#c60000">"</span></span>, <span style="color:#269186"><span style="color:#c60000">"</span>type<span style="color:#c60000">"</span></span> <span style="color:#859900">=></span> <span style="color:#269186"><span style="color:#c60000">"</span>folder<span style="color:#c60000">"</span></span><span style="color:#d31e1e">)</span></span>
+    <span style="color:#d31e1e">)</span></span>);
+}
+
+<span style="color:#859900">if</span>( <span style="color:#268bd2"><span style="color:#859900">$</span>node_id</span> <span style="color:#859900">==</span> <span style="color:#269186">1</span> ) {
+    <span style="color:#a57800">echo</span> <span style="color:#268bd2">json_encode</span>(<span style="color:#a57800">array</span>());
+}
+</span></pre>
+                    </div>
+                    </div>
+
+                    <strong>Why it is not design default?</strong>
+                    <p>Well, this plugin was not shipped a default data source, for two reasons:</p>
+                    <ol>
+                        <li>Common usage of this plugin might be your current treeview or any other kind of data source, and that might have differ format or datatypes. So, let users write one was the best solution for keeping simple and univeral.</li>
+                        <li>The Author was designed this for his own use, so he didn't think of that. (Laugh)</li>
+                    </ol>
+
+                </div>
+            </li>
+            <li>DONE! You should see something like Example.</li>
+        </ol>
+
+        <h2>Customization Attributes</h2>
+        <div class="code-block">
+            <div class="code">
+<pre style="background:#fdf6e3;color:#586e75"><span style="color:#268bd2">var</span> defaultConfig <span style="color:#859900">=</span> <span style="color:#268bd2">{</span>
+    <span style="color:#93a1a1">// source for node retrieve</span>
+    <span style="color:#a57800">nodeSource</span>: <span style="color:#268bd2">function</span>() <span style="color:#268bd2">{</span>
+        <span style="color:#859900">return</span> <span style="color:#859900">window</span>.<span style="color:#268bd2">alert</span><span style="color:#93a1a1">(</span><span style="color:#269186"><span style="color:#c60000">"</span>dummy source, you need to create a node source<span style="color:#c60000">"</span></span><span style="color:#93a1a1">)</span>;
+    <span style="color:#268bd2">}</span>,
+
+    <span style="color:#93a1a1">// short message for empty node </span>
+    noContentString: <span style="color:#269186"><span style="color:#c60000">"</span>There is no node here<span style="color:#c60000">"</span></span>,
+
+    <span style="color:#93a1a1">// the max length of the label in the list</span>
+    labelText_maxLength: <span style="color:#269186">15</span>,
+
+    <span style="color:#93a1a1">// custom type for the list</span>
+    customNodeTypeIndicator: <span style="color:#268bd2">{</span><span style="color:#268bd2">}</span>,
+    customNodeTypeHandler: <span style="color:#268bd2">{</span><span style="color:#268bd2">}</span>
+<span style="color:#268bd2">}</span>;</pre>
+            </div>
+        </div>
+        <pre>label text string, no node string, custom type</pre>
+
+        <h2>TODO</h2>
+        <p>Description for customNodeType</p>
+
+        <h2>Bugs or Any questions</h2>
+        <p>Please visit <a href="https://github.com/bu/hColumns/issues">Github issue</a>, and feel free to create an issue for your problems.</p>
+
+        <h2>Authors</h2>
+        <pre>Buwei Chiu (a.k.a. bu) - <a href="https://github.com/bu">Github</a></pre>
+
+        <h2>License under</h2>
+        <pre>BSD</pre>
+        
         <script src="js/jquery-1.9.1.min.js"></script>
         <script src="js/jquery.hcolumns.min.js"></script>
 
         <script>
             $(document).ready(function() {
+                var nodes = {
+                    0: [
+                        { id: 1, label: "My Favorite Sites", type: "folder" },
+                        { id: 2, label: "Empty Folder", type: "folder"},
+                        { id: 3, label: "Direct link to Google", type: "link", url: "http://www.google.com"}
+                    ],
+
+                    1: [
+                        { id: 11, label: "Tech", type: "folder" },
+                        { id: 12, label: "Food", type: "folder" }
+                    ],
+
+                    11: [
+                        { id: 111, label: "PHP", type: "folder" },
+                        { id: 112, label: "Javascript", type: "folder" },
+                        { id: 113, label: "Hacker News", type:"link", url: "https://news.ycombinator.com/news" }
+                    ],
+
+                    12: [
+                        // empty node
+                    ],
+
+                    111: [
+                        { id: 1111, label: "PHP Engine", type: "folder" },
+                        { id: 1112, label: "PHP Extension", type: "folder" },
+                    ],
+
+                    112: [
+                        { id: 1121, label: "node.js", type: "link", url: "http://nodejs.org/" }
+                    ],
+
+                    1111: [
+                        { id: 11111, label: "PHP: Hypertext Preprocessor", type: "link", url: "http://php.net" }
+                    ],
+
+                    1112: [
+                        { id: 11121, label: "Twig", type: "link", url: "http://twig.sensiolabs.org/" }
+                    ],
+
+                    2: [
+                        // empty node
+                    ]
+                };
+
                 $("#columns").hColumns({
+                    labelText_maxLength: 30, 
+
                     nodeSource: function(node_id, callback) {
                         if(node_id === null) {
-                            return callback(null, [
-                                { id: 1, label: "bu", type: "folder" },
-                                { id: 2, label: "google", type: "link", url: "http://www.google.com"},
-                                { id: 7, label: "empty", type: "folder" }
-                            ]);
+                            node_id = 0;
                         }
 
-                        if(node_id == 1) {
-                            return callback(null, [
-                                { id: 3, label: "yahoo", type: "link", url: "http://us.yahoo.com" }
-                            ]);
+                        if( !(node_id in nodes) ) {
+                            return callback("Node not exists");
                         }
 
-                        return callback(null, []);
-                    },
-
-                    customNodeTypeIndicator: {
-                    },
-
-                    customNodeTypeHandler: {
-                        article: function(columnView, node, node_data) {
-                        
-                        }
+                        return callback(null, nodes[node_id]);
                     }
                 });
             });

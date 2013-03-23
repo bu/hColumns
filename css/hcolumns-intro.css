@@ -19,21 +19,67 @@ h1 small {
     font-size: 0.5em;
 }
 
-p.intro {
-    margin: 1em 1.5em;
-    background: #FFF;
-
-    padding: 1em;
-    border: 1px solid #ddd;
-}
-
-p.intro img {
+img {
     margin: 20px;
 }
 
 h2 {
-    margin: 0.5em 0;
+    margin: 1em 0;
 
     font-size: 1.25em;
     color: #999;
+}
+
+ol {
+    margin-left: 2em;
+
+    list-style: upper-roman;
+}
+
+ol li {
+    margin: 20px;
+}
+
+.code-block {
+    border: 1px solid #ccc;
+    background: #fff;
+
+    margin: 1em;
+    padding: 1em;
+}
+
+.code-block strong {
+    display: block;
+    
+    margin: 1em;
+    font-weight: 700;
+}
+
+.code-block strong.minor {
+    font-weight: 400;
+    color: #666;
+}
+
+.code-block pre {
+    padding: 10px;
+
+    font-family: monospace;
+}
+
+.code-block p {
+    padding: 0 30px;
+
+    margin: 10px 0;
+
+    font-size: 13px;
+}
+
+.code-block ol li {
+    font-size: 13px;
+    margin: 5px;
+    line-height: 20px;
+}
+
+.column-view-container {
+    margin: 1em;
 }
