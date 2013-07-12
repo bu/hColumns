@@ -120,19 +120,19 @@
             if (self.settings.searchable) {
             	self._addColumnSearch(ListElm);
             }
-
-            list.map(function(entry) {
-                // we create the element
-                var EntryElm = $("<li></li>").data("node-id", entry.id).data("node-type", entry.type).data("node-data", entry);
-                var EntryIconElm = $("<i></i>").addClass( self.settings.indicators[entry.type] );
+			
+			for(var i = 0; i < list.length; i++){
+			    // we create the element
+               	var EntryElm = $(document.createElement('li')).data("node-id", list[i].id).data("node-type", list[i].type).data("node-data", list[i]);
+                var EntryIconElm = $(document.createElement('i')).addClass( self.settings.indicators[list[i].type] );
                 
                 // we build the node entry
-                EntryElm.append( document.createTextNode(entry.label) );
-                EntryElm.append(EntryIconElm);
-
-                EntryElm.appendTo(ListElm);
-            });
-
+				EntryElm[0].appendChild( document.createTextNode(list[i].label) );
+				EntryElm[0].appendChild( EntryIconElm[0] );
+				
+				ListElm[0].appendChild(EntryElm[0]);
+			}
+			
             return self._addColumn(ListElm, self);
         },
         
