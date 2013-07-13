@@ -161,9 +161,6 @@
     <span style="color:#93a1a1">// short message for empty node </span>
     noContentString: <span style="color:#269186"><span style="color:#c60000">"</span>There is no node here<span style="color:#c60000">"</span></span>,
 
-    <span style="color:#93a1a1">// the max length of the label in the list</span>
-    labelText_maxLength: <span style="color:#269186">15</span>,
-
     <span style="color:#93a1a1">// custom type for the list</span>
     customNodeTypeIndicator: <span style="color:#268bd2">{</span><span style="color:#268bd2">}</span>,
     customNodeTypeHandler: <span style="color:#268bd2">{</span><span style="color:#268bd2">}</span>
@@ -234,8 +231,6 @@
                 };
 
                 $("#columns").hColumns({
-                    labelText_maxLength: 30, 
-
                     nodeSource: function(node_id, callback) {
                         if(node_id === null) {
                             node_id = 0;
