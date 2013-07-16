@@ -80,7 +80,7 @@
 }
 
 .column ul li.search input {
-	width: 240px;
+	width: 100%;
 	margin: 0;
 }
 
