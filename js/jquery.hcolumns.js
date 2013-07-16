@@ -121,9 +121,9 @@
             	self._addColumnSearch(ListElm);
             }
 			
-			for(var i = 0; i < list.length; i++){
+			for (var i = 0; i < list.length; i++) {
 			    // we create the element
-               	var EntryElm = $(document.createElement('li')).data("node-id", list[i].id).data("node-type", list[i].type).data("node-data", list[i]);
+               	var EntryElm = $(document.createElement('li')).data("node-id", list[i].id).data("node-type", list[i].type).data("node-data", list[i]).attr('title', list[i].label);
                 var EntryIconElm = $(document.createElement('i')).addClass( self.settings.indicators[list[i].type] );
                 
                 // we build the node entry
