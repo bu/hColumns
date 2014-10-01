@@ -157,6 +157,8 @@
         },
 
         _addColumn: function(content_dom_node, columnView) {
+            var self = (!columnView) ? this : columnView;
+        	
             // create new column div
             var ColumnElm = $("<div></div>").addClass("column");
 
@@ -168,6 +170,11 @@
 
             // scroll to the most right position (the place shows the latest click result)
             $(columnView.settings.container_node).scrollLeft( $(".column-view-composition").width() );
+            
+            if (self.settings.searchable) {
+                ColumnElm.find('input').focus();
+                
+            }
         }
     };   
 
